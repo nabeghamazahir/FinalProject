@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Search Results</title>
+</head>
+<body>
+    <h1>Car Search Results</h1>
+    
+    {% if cars %}
+        <h2>Available Cars:</h2>
+        <ul>
+            {% for car in cars %}
+                <li>{{ car.model }} - ${{ car.price }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No cars available for the selected dates.</p>
+    {% endif %}
+</body>
+</html>
