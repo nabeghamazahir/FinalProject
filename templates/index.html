@@ -9,6 +9,52 @@
     padding: 20px;
     background-color: #f2f2f2;
 }
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
     </style>
     
 </head>
@@ -23,9 +69,29 @@
     </form>
 
     <script>
-        var currentDate = new Date();
-        console.log(currentDate)
        
+        var currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() + 1); 
+    
+       
+        var pickupDateInput = document.getElementById("pickup");
+        pickupDateInput.min = currentDate.toISOString().split("T")[0];
+    
+       
+        function validateDropOffDate() {
+            var pickupDate = new Date(pickupDateInput.value);
+            var dropOffDateInput = document.getElementById("dropoff");
+    
+            if (pickupDateInput.value === "") {
+                dropOffDateInput.min = "";
+            } else {
+                pickupDate.setDate(pickupDate.getDate() + 1); 
+                dropOffDateInput.min = pickupDate.toISOString().split("T")[0];
+            }
+        }
+    
+        
+        pickupDateInput.addEventListener("change", validateDropOffDate);
     </script>
     
 </body>

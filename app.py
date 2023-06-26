@@ -18,7 +18,6 @@ def search():
 
         car_models = response.json()
 
-    
         available_cars = []
         for car in car_models:
             if pickup_date in car['available_dates'] and dropoff_date in car['available_dates']:
