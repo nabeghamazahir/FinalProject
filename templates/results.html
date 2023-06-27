@@ -10,7 +10,14 @@
         <h2>Available Cars:</h2>
         <ul>
             {% for car in cars %}
-                <li>{{ car.model }} - ${{ car.price }}</li>
+                <li>{{ car.model }} - ${{ car.price }}
+                    <form action="/final_booking" method="GET" style="display: inline;">
+                        <input type="hidden" name="car_id" value="{{ car.id }}">
+                        <input type="hidden" name="pickup" value="{{ request.form.pickup }}">
+                        <input type="hidden" name="dropoff" value="{{ request.form.dropoff }}">
+                        <input type="submit" value="Book">
+                    </form>
+                </li>
             {% endfor %}
         </ul>
     {% else %}
