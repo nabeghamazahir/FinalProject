@@ -49,4 +49,4 @@ def book_car():
     if store_customer_data(customer_data):
         if update_booking_dates(car_id, pickup_date, dropoff_date):
             return "Car booked successfully!"
-    return "Car Booked succesfully"
+    return "Car Booked successfully"

@@ -11,11 +11,38 @@
         }
 
         header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-            text-align: center;
-        }
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(#000 20%, transparent 70%);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: 18px;
+    margin: 10px 0 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
         .container {
             max-width: 800px;
@@ -31,19 +58,57 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+          margin-left:20px;
+margin-top:5px;
+display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: wrap;
         }
 
         .main-section h2 {
-            font-size: 24px;
+            font-size: 20px;
             margin: 0;
             color: #333;
+          margin-top:5px;
         }
+.mmain-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.section-block {
+    flex: 1 0 300px;
+    margin: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
 
-        .main-section p {
-            font-size: 14px;
-            margin: 0;
-            color: #555;
-        }
+.two-column-text {
+    column-count: 2;
+    column-gap: 20px;
+    margin-top: 10px;
+    text-align: center;
+column-count: 2;
+    column-gap: 0px;
+}
+}
+
+.two-column-text::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.main-section p {
+  font-size: 15px;
+  margin: 0;
+  color: #555;
+}
 
         form {
             margin-top: 20px;
@@ -71,7 +136,7 @@
 
         input[type="submit"] {
             display: block;
-            width: 100%;
+            width: 30%;
             padding: 10px;
             background-color: #4CAF50;
             color: #fff;
@@ -80,19 +145,22 @@
             font-size: 16px;
             cursor: pointer;
         }
-
+      
+    
         input[type="submit"]:hover {
             background-color: #45a049;
         }
 
         footer {
             background-color: #333;
-            padding: 20px;
+            padding: 10px;
             color: #fff;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 50px;
         }
+
     </style>
+    
     
 </head>
 <body>
@@ -101,11 +169,8 @@
     </header>
 
     <div class="container">
-        <div class="main-section">
+        <div class="mmain-section">
             <h2>Car Hire in Australia</h2>
-            <p>Free cancellations on most bookings</p>
-            <p>60,000+ locations</p>
-            <p>Customer support in 40+ languages</p>
         </div>
 
         <form action="/booking/search" method="post">
@@ -118,26 +183,29 @@
         </form>
 
         <div class="main-section">
-            <div>
-                <h2>Flexible rentals</h2>
-                <p>Cancel or change most bookings for free up to 48 hours before pick-up</p>
-            </div>
-            <div>
-                <h2>No hidden fees</h2>
-                <p>Know exactly what you’re paying</p>
-            </div>
-            <div>
-                <h2>Price Match Guarantee</h2>
-                <p>Found the same deal for less? We’ll match the price.</p>
-            </div>
-        </div>
-
+    <div>
         <div class="main-section">
-            <h2>Contact Information</h2>
-            <p>Email: info@carrental.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
+    <div class="section-block">
+        <h2>Flexible rentals</h2>
+        <p class="two-column-text">Cancel or change most bookings for free up to 48hr </p>
     </div>
+    <div class="section-block">
+        <h2>No hidden fees</h2>
+        <p class="two-column-text">Know exactly what you’re paying</p>
+    </div>
+    <div class="section-block">
+        <h2>Price Match Guarantee</h2>
+        <p class="two-column-text">Found the same deal for less?<br>We’ll match the price.</p>
+    </div>
+</div>
+<div class="main-section">
+   
+    <div class="contact-info">
+        <p><strong>Email:</strong><br>info@carrental.com</p>
+        <p><strong>Phone:</strong><br>123-456-7890</p>
+    </div>
+</div>
+
 
     <footer>
         &copy; 2023 Car Rental. All rights reserved.
