@@ -24,7 +24,7 @@ These technologies and concepts combined create a functional and interactive car
 - Search Filters
 - Multi-language Support
   
-## :General Approach:
+## General Approach:
 The code provided is a Flask application for a car rental booking system. It consists of several routes and templates for handling different functionalities such as searching for available cars, booking a car, and displaying booking details.
 
 The search function handles the POST request from the search form and checks the availability of cars for the specified pickup and drop-off dates. It retrieves the car list from an external API, filters out the already booked cars for the given dates, and renders the 'results.html' template with the available cars.
