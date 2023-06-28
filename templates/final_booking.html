@@ -2,23 +2,96 @@
 <html>
 <head>
     <title>Final Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Final Booking</h1>
-    <p>Car ID: {{ car_id }}</p>
-    <p>Pickup Date: {{ pickup_date }}</p>
-    <p>Drop-off Date: {{ dropoff_date }}</p>
-    <form action="/book" method="POST">
-        <input type="hidden" name="car_id" value="{{ car_id }}">
-        <input type="hidden" name="pickup" value="{{ pickup_date }}">
-        <input type="hidden" name="dropoff" value="{{ dropoff_date }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
-        <input type="submit" value="Final Booking">
-    </form>
+    <header>
+        <h1>Welcome to Car Rental</h1>
+    </header>
+
+    <div class="container">
+        <p>Car ID: {{ car_id }}</p>
+        <p>Pickup Date: {{ pickup_date }}</p>
+        <p>Drop-off Date: {{ dropoff_date }}</p>
+        <form action="/booking/book" method="POST">
+            <input type="hidden" name="car_id" value="{{ car_id }}">
+            <input type="hidden" name="pickup" value="{{ pickup_date }}">
+            <input type="hidden" name="dropoff" value="{{ dropoff_date }}">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <input type="submit" value="Final Booking">
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2023 Car Rental. All rights reserved.
+    </footer>
 </body>
 </html>

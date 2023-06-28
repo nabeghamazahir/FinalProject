@@ -2,26 +2,111 @@
 <html>
 <head>
     <title>Car Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .car-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .car-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .car-model {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .car-price {
+            font-weight: bold;
+        }
+
+        .book-form {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .book-button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Car Search Results</h1>
-    
-    {% if cars %}
-        <h2>Available Cars:</h2>
-        <ul>
-            {% for car in cars %}
-                <li>{{ car.model }} - ${{ car.price }}
-                    <form action="/final_booking" method="GET" style="display: inline;">
-                        <input type="hidden" name="car_id" value="{{ car.id }}">
-                        <input type="hidden" name="pickup" value="{{ request.form.pickup }}">
-                        <input type="hidden" name="dropoff" value="{{ request.form.dropoff }}">
-                        <input type="submit" value="Book">
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No cars available for the selected dates.</p>
-    {% endif %}
+    <header>
+        <h1>Welcome to Car Rental</h1>
+    </header>
+
+    <div class="container">
+        {% if cars %}
+            <h2>Available Cars:</h2>
+            <ul class="car-list">
+                {% for car in cars %}
+                    <li class="car-item">
+                        <div class="car-details">
+                            <span class="car-model">{{ car.model }}</span> - ${{ car.price }}
+                        </div>
+                        <form action="/booking/final_booking" method="GET" class="book-form">
+                            <input type="hidden" name="car_id" value="{{ car.id }}">
+                            <input type="hidden" name="pickup" value="{{ request.form.pickup }}">
+                            <input type="hidden" name="dropoff" value="{{ request.form.dropoff }}">
+                            <input type="submit" value="Book" class="book-button">
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No cars available for the selected dates.</p>
+        {% endif %}
+    </div>
+
+    <footer>
+        &copy; 2023 Car Rental. All rights reserved.
+    </footer>
 </body>
 </html>

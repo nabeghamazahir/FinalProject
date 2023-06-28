@@ -4,80 +4,152 @@
     <title>Car Rental</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f2f2f2;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
 
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
-}
+        .main-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
-}
+        .main-section h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
 
-input[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .main-section p {
+            font-size: 14px;
+            margin: 0;
+            color: #555;
+        }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
+        form {
+            margin-top: 20px;
+        }
 
+        form h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
     
 </head>
 <body>
-    <h1>Welcome to Car Rental</h1>
-    <form action="/search" method="post">
-        <label for="pickup">Pickup Date:</label>
-        <input type="date" id="pickup" name="pickup" required><br><br>
-        <label for="dropoff">Drop-off Date:</label>
-        <input type="date" id="dropoff" name="dropoff" required><br><br>
-        <input type="submit" value="Search">
-    </form>
+    <header>
+        <h1>Welcome to Car Rental</h1>
+    </header>
+
+    <div class="container">
+        <div class="main-section">
+            <h2>Car Hire in Australia</h2>
+            <p>Free cancellations on most bookings</p>
+            <p>60,000+ locations</p>
+            <p>Customer support in 40+ languages</p>
+        </div>
+
+        <form action="/booking/search" method="post">
+            <h2>Search for Car Rental</h2>
+            <label for="pickup">Pickup Date:</label>
+            <input type="date" id="pickup" name="pickup" required><br><br>
+            <label for="dropoff">Drop-off Date:</label>
+            <input type="date" id="dropoff" name="dropoff" required><br><br>
+            <input type="submit" value="Search">
+        </form>
+
+        <div class="main-section">
+            <div>
+                <h2>Flexible rentals</h2>
+                <p>Cancel or change most bookings for free up to 48 hours before pick-up</p>
+            </div>
+            <div>
+                <h2>No hidden fees</h2>
+                <p>Know exactly what you’re paying</p>
+            </div>
+            <div>
+                <h2>Price Match Guarantee</h2>
+                <p>Found the same deal for less? We’ll match the price.</p>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <h2>Contact Information</h2>
+            <p>Email: info@carrental.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Car Rental. All rights reserved.
+    </footer>
 
     <script>
-       
         var currentDate = new Date();
         currentDate.setDate(currentDate.getDate() + 1); 
     
-       
         var pickupDateInput = document.getElementById("pickup");
         pickupDateInput.min = currentDate.toISOString().split("T")[0];
     
-       
         function validateDropOffDate() {
             var pickupDate = new Date(pickupDateInput.value);
             var dropOffDateInput = document.getElementById("dropoff");
@@ -90,9 +162,7 @@ input[type="submit"]:hover {
             }
         }
     
-        
         pickupDateInput.addEventListener("change", validateDropOffDate);
     </script>
-    
 </body>
 </html>
