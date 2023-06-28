@@ -3,7 +3,7 @@ This is a car rental application built using Flask, a web framework in Python. T
 ## :computer: [Click here](https://car-rentals-dx0s.onrender.com/) to see my live project!
 ## :pencil2: Planning & Problem Solving
 - Flow charts of app logic.
-- ![Wireframing]()
+- ![[Wireframing](https://github.com/nabeghamazahir/FinalProject/blob/main/Screenshot%202023-06-28%20at%209.19.55%20pm.png)]()
 - ## :rocket: Cool tech
 - Flask
 - HTML
@@ -32,14 +32,14 @@ The final_booking function handles the GET request when a user selects a car to 
 
 The book_car function handles the POST request when the user submits the final booking form. It stores the customer's information in an external API and updates the booking dates for the selected car. It returns a success message if the booking is successful.
 
-## :User Stories:
+## User Stories:
 Users can search for available cars by selecting pickup and drop-off dates.
 Users can view a list of available cars and their details.
 Users can select a car and proceed to the final booking form.
 Users can enter their contact information and submit the booking form.
 Users receive a confirmation message if the booking is successful.
 
-## :Unsolved Issues:
+## Unsolved Issues:
 Error handling and validation of user inputs.
 Authentication and authorization for secure booking.
 Integration with a payment gateway for handling payments
