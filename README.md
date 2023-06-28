@@ -3,7 +3,7 @@ This is a car rental application built using Flask, a web framework in Python. T
 ## :computer: [Click here](https://car-rentals-dx0s.onrender.com/) to see my live project!
 ## :pencil2: Planning & Problem Solving
 - Flow charts of app logic.
-- ![[Wireframing](https://github.com/nabeghamazahir/FinalProject/blob/main/Screenshot%202023-06-28%20at%209.19.55%20pm.png)]()
+- ![[Wireframing](https://raw.githubusercontent.com/nabeghamazahir/FinalProject/main/Screenshot%202023-06-28%20at%209.19.55%20pm.png)]()
 - ## :rocket: Cool tech
 - Flask
 - HTML
